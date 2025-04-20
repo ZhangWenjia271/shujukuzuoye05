@@ -11,7 +11,7 @@
 CREATE TABLE product (
     product_no INT PRIMARY KEY,
     name VARCHAR(100),
-    price DECIMAL(10,2)
+    price NUMERIC(10,2)
 );
 
 -- 从txt文件导入数据 (文件名为products.txt，格式为: 1|Product1|100.00，如：650|water|10.00)
