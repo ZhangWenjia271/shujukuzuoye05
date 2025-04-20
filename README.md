@@ -44,8 +44,8 @@ WHERE price is NOT NULL;
 UPDATE product 
 SET price =
     CASE 
-    WHEN price > 100 THEN price * 1.02 
-    ELSE price * 1.04 
+        WHEN price > 100 THEN price * 1.02 
+        ELSE price * 1.04 
 END
 WHERE price is NOT NULL;
 
