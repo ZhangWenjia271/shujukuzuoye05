@@ -73,21 +73,22 @@ FROM generate_series(1, 100000);
 
 -- 测试DELETE性能 (删除所有数据)
 -- 记录开始时间
-\o delete_time.txt
+\o D:/shujuku/delete_time.txt
 \timing on
 DELETE FROM product;
 \timing off
 \o
 
 -- 重新插入数据
-INSERT INTO product (name, price)
-SELECT
-    'Product' || generate_series,
-    ROUND((random() * 1000)::numeric, 2)
+INSERT INTO product (product_no, name, price)
+SELECT 
+    generate_series,  -- 直接用序列值作为ID
+    'Product' || generate_series,   -- 生成名称 Product1, Product2, ...
+    ROUND((random() * 1000)::numeric, 2)  -- 生成0到1000之间的随机价格，保留2位小数
 FROM generate_series(1, 100000);
 
 -- 测试TRUNCATE性能
-\o truncate_time.txt
+\o D:/shujuku/truncate_time.txt
 \timing on
 TRUNCATE TABLE product;
 \timing off
