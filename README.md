@@ -63,11 +63,12 @@ WHERE price > (SELECT AVG(price) FROM product);
 ### 使用 PostgreSQL 完成  
 
 ```
--- 添加10万条测试数据
-INSERT INTO product (name, price)
-SELECT
-    'Product' || generate_series, -- 生成名称 Product1, Product2, ...
-    ROUND((random() * 1000)::numeric, 2) -- 生成0到1000之间的随机价格，保留2位小数
+-- 添加10万条测试数据【注：此处代码经过修改，原题代码因没有设置product_no会导致报错（最初将其设为primary key若为空则报错）】
+INSERT INTO product (product_no, name, price)
+SELECT 
+    generate_series,  -- 直接用序列值作为ID
+    'Product' || generate_series,   -- 生成名称 Product1, Product2, ...
+    ROUND((random() * 1000)::numeric, 2)  -- 生成0到1000之间的随机价格，保留2位小数
 FROM generate_series(1, 100000);
 
 -- 测试DELETE性能 (删除所有数据)
