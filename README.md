@@ -20,6 +20,8 @@ CREATE TABLE product (
 -- 导出数据到CSV文件
 \copy product TO '‪D:/shujuku/products_export.csv' WITH CSV HEADER;
 ```
+注：如下截图包含题目一和题目二前五小问的内容：
+![2834ac328151871fa593436f55bfdd0](https://github.com/user-attachments/assets/5fb636fb-93c6-474d-9489-e2ba49a84d6a)
 
 
 ## 题目二：数据操作
@@ -57,6 +59,9 @@ WHERE name LIKE '%cake%';
 DELETE FROM product
 WHERE price > (SELECT AVG(price) FROM product);
 ```
+注：如下截图包含题目二第六小问内容：
+![fc27dbbe6c899fbae86b7ddb5eab094](https://github.com/user-attachments/assets/1b4fa17f-7626-48fa-98df-debff828729b)
+
 
 ## 题目三：大数据量操作性能比较
 
@@ -94,6 +99,8 @@ TRUNCATE TABLE product;
 \timing off
 \o
 ```
+注：如下截图包含题目三内容：
+![7addb0edc59c86bb98279f7e6fffc03](https://github.com/user-attachments/assets/bda39c2c-a6e6-40f0-87d2-538d01bc4e87)
 
 
 ### 性能比较说明
