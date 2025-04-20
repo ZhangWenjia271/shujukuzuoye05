@@ -15,10 +15,10 @@ CREATE TABLE product (
 );
 
 -- 从txt文件导入数据 (文件名为products.txt，格式为: 1|Product1|100.00，如：650|water|10.00)
-COPY product FROM '‪D:\shujuku\products.txt' DELIMITER '|';
+\copy product FROM 'D:/shujuku/products.txt' DELIMITER '|';
 
 -- 导出数据到CSV文件
-COPY product TO '‪D:\shujuku\products_export.csv' WITH CSV HEADER;
+\copy product TO '‪D:/shujuku/products_export.csv' WITH CSV HEADER;
 ```
 
 
